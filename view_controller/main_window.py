@@ -131,5 +131,6 @@ class MainWindow(QtWidgets.QMainWindow):
         :param a0: Action. Ignored.
         :return: None.
         """
+        # Removes temporary dir where quicklooks are downloaded.
         if os.path.isdir(self.dl_panel.tmp_dir):
             shutil.rmtree(self.dl_panel.tmp_dir)

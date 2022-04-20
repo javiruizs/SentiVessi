@@ -314,9 +314,9 @@ class DownloaderTab:
         sel_df = self.get_selected_rows(selection)
 
         if "offline" in sel_df["access"].unique():
-            file = f"offline_{utils.formatted_ts()}"
+            file = f"offline_{utils.formatted_ts()}.csv"
             information_dialog("Only online products can be downloaded with this program. To download offline products,"
-                               f" please use off_downloader.py with the generated file {file}.")
+                               f" please use OAHretriever.py with the generated file {os.path.join(os.getcwd(), file)}.")
 
             sel_df[sel_df.access == "offline"].to_csv(file, sep=";", decimal=",")
 
