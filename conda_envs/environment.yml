@@ -1,0 +1,22 @@
+name: sentinel  # Name can be changed if wanted.
+prefix: .  # Alternatively, a full path can be given. One overrides the other.
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.8
+  - numpy
+  - pandas
+  - matplotlib
+  - geopandas
+  - folium
+  - shapely
+  - pyqt
+  - gdal
+  - qgis
+  - termcolor
+  - sentinelsat
+  - jupyterlab
+  - ipython
+  - fiona
+  - openpyxl
