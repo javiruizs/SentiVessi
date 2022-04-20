@@ -233,7 +233,10 @@ def create_stack(*products: Collection[snappy.Product]) -> snappy.Product:
     if VERBOSE:
         print("Creating stack...")
 
-    return snappy.GPF.createProduct("CreateStack", params, products)
+    # Product list needs to be reversed so that first product is taken as master and the second as slave
+    product_set = list(products)[::-1]
+
+    return snappy.GPF.createProduct("CreateStack", params, product_set)
 
 
 def adaptive_thresholding(product: snappy.Product, bg_window: float = 800.0, estimate_bg: bool = False,
