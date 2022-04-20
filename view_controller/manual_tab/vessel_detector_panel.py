@@ -65,6 +65,16 @@ class VesselDetectorPanel:
         self.get_tmp_files_input()
         self.read_parameters()
 
+        # Check if output dir is set
+        if not self.out_dir:
+            warning_dialog("Please select an output directory first.")
+            return
+
+        # Check if products have been selected
+        if len(self.prod_paths) < 1:
+            warning_dialog("Please select at least one product to process first.")
+            return
+
         self.detector = VesselDetector(subset=self.subset, out_dir=self.out_dir, steps=self.tmp_files, verbose=False,
                                        tgt_window=self.tgt_window, guard_wd_size=self.guard_wd_size,
                                        bg_wd_size=self.bg_wd_size, pfa=self.pfa, min_tgt=self.min_tgt,

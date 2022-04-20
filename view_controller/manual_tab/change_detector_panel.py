@@ -62,6 +62,16 @@ class ChangeDetectorPanel:
             warning_dialog("You must select a reference product first.")
             return
 
+        # Check if output dir is set
+        if not self.out_dir:
+            warning_dialog("Please select an output directory first.")
+            return
+
+        # Check if products have been selected
+        if len(self.prod_paths) < 1:
+            warning_dialog("Please select at least one product to compare to first.")
+            return
+
         self.detector = ChangeDetector(subset=self.subset, ref_prod=self.ref_prod_path, sequential=self.sequential,
                                        ref_chnl=self.ref_color, out_dir=self.out_dir, steps=self.tmp_files)
 
